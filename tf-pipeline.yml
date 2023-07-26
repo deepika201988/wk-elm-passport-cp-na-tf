@@ -1,0 +1,25 @@
+name: $(year:yyyy).$(Month).$(DayOfMonth)$(rev:.r)
+resources:
+  repositories:
+  - repository: templates # simple name to reference this repository at a later step 
+    type: git
+    name: GRC-IPM/grc-ipm-yaml
+    endpoint: grc-ipm-repos #Azure Devops service connection 
+    ref: refs/heads/main
+
+
+trigger:
+  branches:
+    include:
+    - '*'
+  batch: true
+
+pr:
+- '*'
+
+variables:
+- template: templates/yaml/variables/elm-passport-cp-na-variables-common.yml@templates
+- template: templates/yaml/variables/elm-montana-variables-common.yml@templates
+
+stages:
+- template: templates/yaml/stages/elm-passport-cp-na-build-deploy-tf.yml@templates
