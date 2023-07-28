@@ -3,8 +3,15 @@ locals {
 
  tags = {
     wk_cost_center      = "${var.costCenter}",
-    wk_environment-tags = "${var.envType}"
-    wk_division_code    = "${var.divisioncode}
+    wk_environment-tags = "${var.envType}",
+    wk_division_code    = "${var.divisioncode}",
+    wk_bu_code          = "{var.bu_code}",
+    wk_environment_name = "{var.envString}",
+    wk_division         = "{var.division}",
+    wk_application_id   ="{var.application_id}",
+    wk_applicaion_name  = "{var.appNamepp}",
+    wk_infra_support_group = "{var.infraSupportGroup}",
+    wl_app_support_group   = "{var.appSupportGroup}"
     there are many i have noted only few   //all wk related tags applicable only in wk 
  }
  subnet_names = { 
